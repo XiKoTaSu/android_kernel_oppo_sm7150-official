@@ -38,8 +38,8 @@ jobs:
 
       - name: Clone kernel source
         run: |
+          git clone https://github.com/XiKoTaSu/android_kernel_modules_and_devicetree_oppo_sm7150 --depth 1 $GITHUB_WORKSPACE/workdir/code
           git clone --recursive https://github.com/$GITHUB_REPOSITORY/ -b ${{ steps.branch-names.outputs.current_branch }} --depth 1 $GITHUB_WORKSPACE/workdir/code/source/android/kernel/msm-4.14
-          git clone https://github.com/XiKoTaSu/android_kernel_modules_and_devicetree_oppo_sm7150 --depth=1 code
 
       - name: Setting up ccache
         uses: hendrikmuhs/ccache-action@v1.2
