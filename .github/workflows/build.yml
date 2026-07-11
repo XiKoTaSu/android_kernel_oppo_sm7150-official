@@ -70,7 +70,7 @@ jobs:
       - name: Check kernel file
         run: |
           cd $GITHUB_WORKSPACE/workdir
-          if [ -f out/arch/arm64/boot/Image.gz ]; then
+          if [ -f $GITHUB_WORKSPACE/workdir/out/arch/arm64/boot/Image.gz ]; then
               echo "CHECK_FILE_IS_OK=true" >> $GITHUB_ENV
           else
               echo "Kernel output file is empty"
