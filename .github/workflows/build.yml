@@ -70,7 +70,7 @@ jobs:
       - name: Check kernel file
         run: |
           cd $GITHUB_WORKSPACE/workdir
-          if [ -f $GITHUB_WORKSPACE/workdir/out/arch/arm64/boot/Image.gz ]; then
+          if [ -f $GITHUB_WORKSPACE/workdir/code/source/android/kernel/msm-4.14/out/arch/arm64/boot/Image.gz ]; then
               echo "CHECK_FILE_IS_OK=true" >> $GITHUB_ENV
           else
               echo "Kernel output file is empty"
@@ -82,11 +82,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Image-gz-4.14
-          path: workdir/out/arch/arm64/boot/Image.gz
+          path: workdir/code/source/android/kernel/msm-4.14/out/arch/arm64/boot/Image.gz
 
       - name: Upload kernel file
         if: env.CHECK_FILE_IS_OK == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: Image-gz-dtb-4.14
-          path: workdir/out/arch/arm64/boot/Image.gz-dtb
+          path: workdir/code/source/android/kernel/msm-4.14/out/arch/arm64/boot/Image.gz-dtb
